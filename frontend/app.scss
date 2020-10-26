@@ -1,0 +1,38 @@
+@use "@material/layout-grid/mdc-layout-grid";
+
+@use '@material/button/mdc-button';
+@use '@material/button';
+
+@use "@material/floating-label/mdc-floating-label";
+@use "@material/line-ripple/mdc-line-ripple";
+@use "@material/notched-outline/mdc-notched-outline";
+@use "@material/textfield";
+
+@use "@material/card";
+
+@include card.core-styles;
+
+@include textfield.core-styles;
+
+
+  
+  // MDC Web's default desktop breakpoint
+  @media (min-width: 840px) {
+    .demo-grid .mdc-layout-grid__inner {
+      justify-content: center;
+    }
+  
+    // Specify start position for odd cells
+    // :nth-child(2n+1) is more flexible than :nth-child(odd) as you can use this pattern for 3, 4, etc. cells in a row (3n+1, 4n+1 etc.).
+    .demo-cell:nth-child(2n+1) {
+      grid-column-start: 1;
+    }
+  }
+
+  .my-card {
+    height: 600px;
+  }
+
+
+
+
