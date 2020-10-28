@@ -1005,6 +1005,19 @@
     "@material/typography" "^7.0.0"
     tslib "^1.9.3"
 
+"@material/icon-button@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/icon-button/-/icon-button-7.0.0.tgz#6ad9d51e51f73b033a9b6ee3a87579a0a448eb36"
+  integrity sha512-ppU7yie70KM3czpBXMwYN+Ape6mF8FYQtv1iAYW/fLYQQV/iszB9o+s4CovONltLkavMj9/FQWGyyssSmKGAzg==
+  dependencies:
+    "@material/base" "^7.0.0"
+    "@material/density" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/rtl" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    tslib "^1.9.3"
+
 "@material/layout-grid@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@material/layout-grid/-/layout-grid-7.0.0.tgz#4ec9ba1fbc6b2a1122b6b09d148d08a3124d37ac"
@@ -1019,6 +1032,22 @@
     "@material/base" "^7.0.0"
     "@material/feature-targeting" "^7.0.0"
     "@material/theme" "^7.0.0"
+    tslib "^1.9.3"
+
+"@material/list@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/list/-/list-7.0.0.tgz#e9edb306ebb216445cdf2659af86eb8e8b7df464"
+  integrity sha512-bdcL0uuRtVJikHyINa8NhAjHkmZN6Oq/CGtoAdTWkGl3aBCZUNn6p/80ptThdYkROJUjGQiyMkfJnzbdlwU7+A==
+  dependencies:
+    "@material/base" "^7.0.0"
+    "@material/density" "^7.0.0"
+    "@material/dom" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/rtl" "^7.0.0"
+    "@material/shape" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/typography" "^7.0.0"
     tslib "^1.9.3"
 
 "@material/notched-outline@^7.0.0":
@@ -2739,6 +2768,13 @@ autoprefixer@^10.0.1:
     normalize-range "^0.1.2"
     num2fraction "^1.2.2"
     postcss-value-parser "^4.1.0"
+
+axios@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
+  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 babel-code-frame@^6.26.0:
   version "6.26.0"
@@ -4897,7 +4933,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==

@@ -14,7 +14,22 @@ const autoprefixer = require('autoprefixer');
       filename: 'main.js',
       path: path.resolve(__dirname, 'dist'),
     },
-  },{
+  },
+  {
+    mode: 'development',
+    entry: './src/searchPlaces.js',
+    plugins: [
+      new HtmlWebpackPlugin({
+        filename: 'searchPlaces.html',
+        template: 'searchPlaces.html'
+      }),
+    ],
+    output: {
+      filename: 'searchPlaces.js',
+      path: path.resolve(__dirname, 'dist'),
+    },
+  },
+  {
     entry:  ['./app.scss', './app.js'],
     output: {
       // This is necessary for webpack to compile

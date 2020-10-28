@@ -248,7 +248,7 @@ const epsg3857 = require('epsg-index/s/3857.json');
             };
             map.setCenter(e.result.geometry.coordinates)
             map.addSource("polygon", createGeoJSONCircle(e.result.geometry.coordinates,
-                90));
+                25));
 
             map.addLayer({
                 "id": "polygon",

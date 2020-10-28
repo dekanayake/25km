@@ -1,1 +1,5 @@
 frontend/node_modules
+frontend/dist
+aws-cdk/node_modules
+aws-cdk/lambda/place-nearby-lambda/node_modules
+aws-cdk/cdk.out

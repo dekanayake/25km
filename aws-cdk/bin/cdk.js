@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("source-map-support/register");
+const cdk = require("@aws-cdk/core");
+const api_lambda_stack_1 = require("../lib/api-lambda-stack");
+const app = new cdk.App();
+const apiLambdaStack = new api_lambda_stack_1.ApiLambdaStack(app, 'places-api-stack', {});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2RrLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiY2RrLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUNBLHVDQUFxQztBQUNyQyxxQ0FBcUM7QUFDckMsOERBQTBEO0FBRzFELE1BQU0sR0FBRyxHQUFHLElBQUksR0FBRyxDQUFDLEdBQUcsRUFBRSxDQUFDO0FBRzFCLE1BQU0sY0FBYyxHQUFHLElBQUksaUNBQWMsQ0FBQyxHQUFHLEVBQUUsa0JBQWtCLEVBQUMsRUFDakUsQ0FBQyxDQUFBIiwic291cmNlc0NvbnRlbnQiOlsiIyEvdXNyL2Jpbi9lbnYgbm9kZVxuaW1wb3J0ICdzb3VyY2UtbWFwLXN1cHBvcnQvcmVnaXN0ZXInO1xuaW1wb3J0ICogYXMgY2RrIGZyb20gJ0Bhd3MtY2RrL2NvcmUnO1xuaW1wb3J0IHsgQXBpTGFtYmRhU3RhY2sgIH0gZnJvbSAnLi4vbGliL2FwaS1sYW1iZGEtc3RhY2snO1xuXG5cbmNvbnN0IGFwcCA9IG5ldyBjZGsuQXBwKCk7XG5cblxuY29uc3QgYXBpTGFtYmRhU3RhY2sgPSBuZXcgQXBpTGFtYmRhU3RhY2soYXBwLCAncGxhY2VzLWFwaS1zdGFjaycse1xufSlcblxuXG5cblxuXG5cblxuXG5cbiJdfQ==
