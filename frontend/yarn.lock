@@ -963,6 +963,21 @@
     "@material/shape" "^7.0.0"
     "@material/theme" "^7.0.0"
 
+"@material/checkbox@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/checkbox/-/checkbox-7.0.0.tgz#8941fe7f31570b7a055b72fda73c3ba4bc829f19"
+  integrity sha512-GMQzABt8vLZNzq44qHSPKmUurZ2R1sKPX8gtwbwcGBoE7MJXIYkMj3+IYv38Mki9B3BlJPDVqBn5jU20mPCmBQ==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/density" "^7.0.0"
+    "@material/dom" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/touch-target" "^7.0.0"
+    tslib "^1.9.3"
+
 "@material/density@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@material/density/-/density-7.0.0.tgz#ad59ebb62566c1085b51e94375b20b5149d5e9e6"
@@ -1000,6 +1015,19 @@
     "@material/base" "^7.0.0"
     "@material/dom" "^7.0.0"
     "@material/feature-targeting" "^7.0.0"
+    "@material/rtl" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/typography" "^7.0.0"
+    tslib "^1.9.3"
+
+"@material/form-field@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/form-field/-/form-field-7.0.0.tgz#e32c8fbf5a947aaa96d9c5f8ada75fbabb1504b7"
+  integrity sha512-bx3klwE48FosNeqE6Q1jGkCnRLv0nBaopR+vkfijVpeIcy0JtLgDDgA7rzm35nEpXqTdyHTVzNaUo8GHRMYlcg==
+  dependencies:
+    "@material/base" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/ripple" "^7.0.0"
     "@material/rtl" "^7.0.0"
     "@material/theme" "^7.0.0"
     "@material/typography" "^7.0.0"
@@ -1091,6 +1119,56 @@
     "@material/rtl" "^7.0.0"
     "@material/theme" "^7.0.0"
 
+"@material/tab-bar@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/tab-bar/-/tab-bar-7.0.0.tgz#8f3ca8b6d8a8893905882f39d637f07662aa3316"
+  integrity sha512-kwcUtmDHQRNxuNjYT4Jtf5b7Zb4ZXCJsvZllX4qMPUGBxEDEjBh1zm3l7Oc5Z0bkMSMND6rFWZQS7HOgqa6YHg==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/density" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/tab" "^7.0.0"
+    "@material/tab-scroller" "^7.0.0"
+    tslib "^1.9.3"
+
+"@material/tab-indicator@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/tab-indicator/-/tab-indicator-7.0.0.tgz#f5be295f92a774a0d7b0456cc3382f23bd58971e"
+  integrity sha512-hgkBiT7IY1Ze45yBsydArP9Rm10W9lnTAk9WOcaWqpBZQeL8CMBEFf+9/XaqfNRtL7Sk1tivbmOQgEO+gK3Tcw==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    tslib "^1.9.3"
+
+"@material/tab-scroller@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/tab-scroller/-/tab-scroller-7.0.0.tgz#48d4f6aa7efd8e4f5f5cf5ef8edef088b92e621b"
+  integrity sha512-BnTLAqOkH1IIqF3JgkaWV8IHXSbA2yX1tgl1SzAiS+bHNmw8iUwY371MzlGA3mO2R9u0KweRc3wrCFeYjYgl+Q==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/dom" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/tab" "^7.0.0"
+    tslib "^1.9.3"
+
+"@material/tab@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/tab/-/tab-7.0.0.tgz#b2cf411d30a2d23ffe73a7be46005f913fa9772d"
+  integrity sha512-lxt7jqgY73RqfttsWKJP9YKu6mwELKAGQanC+qJ63TtJjzYBwyzgmtyaI+rDStlDWZGYHgIvO2W9K2ihy3+YyA==
+  dependencies:
+    "@material/base" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/rtl" "^7.0.0"
+    "@material/tab-indicator" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/typography" "^7.0.0"
+    tslib "^1.9.3"
+
 "@material/textfield@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@material/textfield/-/textfield-7.0.0.tgz#5a8683723a034edcec0f453f1d7f348583caef97"
@@ -1117,6 +1195,21 @@
   integrity sha512-tuwsTG5b1SdkQHnGOCsr/2Vl/smeIWuKtr9YdeHjqiLphEAzamd9tDCzSEXaO18wLvc7xour/cbWdD6LW+q2cw==
   dependencies:
     "@material/feature-targeting" "^7.0.0"
+
+"@material/top-app-bar@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/top-app-bar/-/top-app-bar-7.0.0.tgz#e8d28d8b20e6404f43151d77ef67bfa6244834d3"
+  integrity sha512-QR8qxZQ/JlWADzRPWooHF0MKDfoO2UWIekaNPcsEL6uPevPl0euBs3bvWNIeX/tRN18yynFiWiEvfOTz6yrULw==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/elevation" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/rtl" "^7.0.0"
+    "@material/shape" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/typography" "^7.0.0"
+    tslib "^1.9.3"
 
 "@material/touch-target@^7.0.0":
   version "7.0.0"

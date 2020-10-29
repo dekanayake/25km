@@ -19,16 +19,8 @@
             margin: 0;
             padding: 0;
         }
-    </style>
-</head>
 
-<body>
-    <style>
 
-         body {
-            margin: 0;
-            padding: 0;
-        }
 
         #map {
             position: absolute;
@@ -36,6 +28,15 @@
             bottom: 0;
             width: 100%;
         }
+
+        .geocoder-dropdown-item {
+            padding: 5px;
+        }
+
+        .geocoder-dropdown-icon {
+            margin-right: 10px;
+        }
+
         #geocoder {
             z-index: 1;
             width: 100%;
@@ -43,8 +44,13 @@
             top: 20px;
         }
 
+
         .mapboxgl-ctrl-geocoder {
             min-width: 100%;
+        }
+
+        #map {
+            margin-top: 200px;
         }
 
         @media (max-width: 800px) {
@@ -53,52 +59,163 @@
             }
         }
     </style>
+</head>
+
+<body class="mdc-typography demo-body" dir="ltr">
 
 
-    <div class="mdc-card">
-        <div class="demo-grid mdc-layout-grid">
-            <div class="mdc-layout-grid__inner">
 
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label">
-                        <span class="mdc-text-field__ripple"></span>
-                        <input class="mdc-text-field__input" type="text" placeholder="Name" aria-label="Label" id="freindName">
-                        <span class="mdc-line-ripple"></span>
-                    </label>
-                </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                    <div id="geocoderFreind" class="geocoder"></div>
-                </div>
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
-                    <div class="mdc-touch-target-wrapper">
-                        <button id="addFreindBtn" class="mdc-button mdc-button--raised" >
-                            <span class="mdc-button__label">Add</span>
-                        </button>
-                        <button id="showPlaces" class="mdc-button mdc-button--raised" >
-                                <span class="mdc-button__label">Show</span>
-                            </button>
-                    </div>
-                </div>
+    <div class="mdc-tab-bar" role="tablist" id="tabbar">
 
-            </div>
-        </div>
-     </div> 
+        <div class="mdc-tab-scroller">
+            <div class="mdc-tab-scroller__scroll-area">
+                <div id="tabs" class="mdc-tab-scroller__scroll-content">
+                    <button class="mdc-tab mdc-tab--active" role="tab" aria-selected="true" tabindex="0">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">add_location</span>
+                            <span class="mdc-tab__text-label">Locations</span>
+                        </span>
+                        <span class="mdc-tab-indicator mdc-tab-indicator--active">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
+                    <button class="mdc-tab " role="tab" aria-selected="true" tabindex="1" disabled id="mapTab">
+                        <span class="mdc-tab__content">
+                            <span class="mdc-tab__icon material-icons" aria-hidden="true">map</span>
+                            <span class="mdc-tab__text-label">Map</span>
+                        </span>
+                        <span class="mdc-tab-indicator ">
+                            <span class="mdc-tab-indicator__content mdc-tab-indicator__content--underline"></span>
+                        </span>
+                        <span class="mdc-tab__ripple"></span>
+                    </button>
 
-        <div class="mdc-card">
-            <div class="demo-grid mdc-layout-grid">
-                <div class="mdc-layout-grid__inner">
-                    <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                        <ul id="freindAddressList" class="mdc-list">
-
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
-       
     </div>
 
-    <div id="map"></div>
+    <div id="userinput">
+
+
+        <div class="demo-grid mdc-layout-grid">
+            <div class="mdc-layout-grid__inner">
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-card mdc-card--outlined">
+                        <div class="demo-grid mdc-layout-grid">
+                            <div class="mdc-layout-grid__inner">
+
+                                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                                    <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label">
+                                        <span class="mdc-text-field__ripple"></span>
+                                        <input class="mdc-text-field__input" type="text" placeholder="Name"
+                                            aria-label="Label" id="freindName">
+                                        <span class="mdc-line-ripple"></span>
+                                    </label>
+                                </div>
+                                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                                    <div id="geocoderFreind" class="geocoder"></div>
+                                </div>
+                                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">
+                                    <div class="mdc-touch-target-wrapper">
+                                        <button id="addFreindBtn" class="mdc-button mdc-button--raised">
+                                            <span class="mdc-button__label">Add</span>
+                                        </button>
+                                        <button id="showPlaces" class="mdc-button mdc-button--raised">
+                                            <span class="mdc-button__label">Show</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-card mdc-card--outlined">
+                        <div class="demo-grid mdc-layout-grid">
+                            <div class="mdc-layout-grid__inner">
+                                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                                    <ul id="freindAddressList" class="mdc-list">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="demo-grid mdc-layout-grid" id="mapControl" style="display: none;">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <div class="mdc-card mdc-card--outlined">
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="Park" value="park" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none"
+                                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                        <label for="checkbox-1">Park</label>
+                    </div>
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="Cafe" value="cafe" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none"
+                                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                        <label for="Cafe">Cafe</label>
+                    </div>
+                    <div class="mdc-form-field">
+                        <div class="mdc-checkbox">
+                            <input type="checkbox" class="mdc-checkbox__native-control" id="Resturent" value="restaurant" />
+                            <div class="mdc-checkbox__background">
+                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
+                                    <path class="mdc-checkbox__checkmark-path" fill="none"
+                                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
+                                </svg>
+                                <div class="mdc-checkbox__mixedmark"></div>
+                            </div>
+                            <div class="mdc-checkbox__ripple"></div>
+                        </div>
+                        <label for="Resturent">Resturent</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="map" style="visibility: hidden;"></div>
+
+    </div>
+
+
+
+
+
+
+
 
     <script src="bundle.js" async></script>
 

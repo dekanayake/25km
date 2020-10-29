@@ -9,9 +9,30 @@
 @use "@material/textfield";
 
 @use "@material/card";
-@use "@material/icon-button";
+
 
 @use "@material/list";
+
+@use "@material/icon-button";
+
+@use "@material/tab-bar/mdc-tab-bar";
+@use "@material/tab-scroller/mdc-tab-scroller";
+@use "@material/tab-indicator/mdc-tab-indicator";
+@use "@material/tab/mdc-tab";
+
+@use "@material/checkbox";
+@use "@material/form-field";
+
+@use "@material/top-app-bar/mdc-top-app-bar";
+
+@include icon-button.core-styles;
+
+@include checkbox.core-styles;
+@include form-field.core-styles;
+
+@include icon-button.core-styles;
+
+
 
 
 
@@ -45,6 +66,12 @@
   .my-card {
     height: 600px;
   }
+
+
+  .material-icons.nature { color: #86FF33; }
+  .material-icons.cafe { color: #900C3F ; }
+  .material-icons.restaurant { color: #FFAF33 ; }
+  .material-icons.marker { color: #FF7A33 ; }
 
 
 
