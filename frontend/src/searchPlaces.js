@@ -27,13 +27,89 @@ const showAddFreinds = () => {
     document.getElementById('userinput').style.display = 'inline';
     document.getElementById('mapControl').style.display = 'none'
     document.getElementById('map').style.visibility = 'hidden'
+    document.getElementById('listingDesktop').style.visibility = 'hidden'
+    document.getElementById('listingMobile').style.visibility = 'hidden'
 }
 
 const showMap = () => {
     document.getElementById('userinput').style.display = 'none';
     document.getElementById('mapControl').style.display = 'inline'
     document.getElementById('map').style.visibility = 'visible'
+    if (window.matchMedia('screen and (max-width: 800px)').matches) {
+        document.getElementById('listingMobile').style.visibility = 'visible'
+    } else {
+        document.getElementById('listingDesktop').style.visibility = 'visible'
+    }
+   
 }
+
+const buildLocationList = ()  =>{
+if (window.matchMedia('screen and (max-width: 800px)').matches) {
+         buildLocationListMobile()
+    } else {
+        buildLocationListDesktop()
+    }
+}
+
+const buildLocationListMobile = () => {
+    var listings = document.getElementById('mobileLocationList');
+    const locationOutputs = filteredPlaces.map((place, i)=>{
+    
+        var prop = {
+            title:place.name,
+            address:place.vicinity,
+            id: place.id,
+            city: place.vicinity
+        };
+
+
+        return ` <li class="mdc-list-item">
+      <span class="mdc-list-item__ripple"></span>
+      <span class="mdc-list-item__text">
+        <span class="mdc-list-item__primary-text">${prop.title}</span>
+        <span class="mdc-list-item__secondary-text">${prop.city}</span>
+      </span>
+    </li>`
+      });
+
+      listings.innerHTML = locationOutputs.join([''])
+}
+
+const  buildLocationListDesktop =() =>{
+  
+    var listings = document.getElementById('listings');
+    listings.innerHTML = ''
+    filteredPlaces.forEach((place, i)=>{
+    
+      var prop = {
+          title:place.name,
+          address:place.vicinity,
+          id: place.id,
+          city: place.vicinity
+      };
+  
+      /* Add a new listing section to the sidebar. */
+      var listing = listings.appendChild(document.createElement('div'));
+      /* Assign a unique `id` to the listing. */
+      listing.id = "listing-" + prop.id;
+      /* Assign the `item` class to each listing for styling. */
+      listing.className = 'item';
+  
+      /* Add the link to the individual listing created above. */
+      var link = listing.appendChild(document.createElement('a'));
+      link.href = '#';
+      link.className = 'title';
+      link.id = "link-" + prop.id;
+      link.innerHTML = prop.title;
+  
+      /* Add details to the individual listing. */
+      var details = listing.appendChild(document.createElement('div'));
+      details.innerHTML = prop.city;
+      if (prop.phone) {
+        details.innerHTML += ' · ' + prop.phoneFormatted;
+      }
+    });
+  }
 
 const showPlaceMarkers = () => {
     placeMarkers.forEach(marker => {
@@ -233,6 +309,7 @@ const findIntersection = () => {
             })
             filteredPlaces = places
             showPlaceMarkers()
+            buildLocationList()
         })
         .catch(function (error) {
             console.log(error);
@@ -291,6 +368,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return exists
             })
             showPlaceMarkers()
+            buildLocationList()
         })
     })
 }, false);
