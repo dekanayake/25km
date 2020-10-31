@@ -25,6 +25,16 @@
 
 @use "@material/top-app-bar/mdc-top-app-bar";
 
+@use "@material/radio";
+
+@use "@material/linear-progress";
+
+@use "@material/circular-progress/mdc-circular-progress";
+
+@include linear-progress.core-styles;
+
+@include radio.core-styles;
+
 @include icon-button.core-styles;
 
 @include checkbox.core-styles;

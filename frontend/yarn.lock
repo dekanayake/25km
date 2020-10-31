@@ -978,6 +978,18 @@
     "@material/touch-target" "^7.0.0"
     tslib "^1.9.3"
 
+"@material/circular-progress@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/circular-progress/-/circular-progress-7.0.0.tgz#db8a59d351179ebcde1da2e16ab6d151b0f3cb26"
+  integrity sha512-M/GpU1s6yAlVnrTRob2uaybH+f3jpbC4h8J1e2SIpFh9vM4XNMUsgd/0OX7CVny7hDLz6/x6kWXyxKKx8IY1SA==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/progress-indicator" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    tslib "^1.9.3"
+
 "@material/density@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@material/density/-/density-7.0.0.tgz#ad59ebb62566c1085b51e94375b20b5149d5e9e6"
@@ -1062,6 +1074,18 @@
     "@material/theme" "^7.0.0"
     tslib "^1.9.3"
 
+"@material/linear-progress@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/linear-progress/-/linear-progress-7.0.0.tgz#6b4adb730513390a78fba8cbae2f26424f09919d"
+  integrity sha512-UWbfHGJG1xfiAGcC8p2q2HjFNGvV2ribtr6Td7Hme4iBQG8cktGwPs05r67H5yP+3AEAcjnraQ6btyaOrtXHUw==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/progress-indicator" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    tslib "^1.9.3"
+
 "@material/list@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@material/list/-/list-7.0.0.tgz#e9edb306ebb216445cdf2659af86eb8e8b7df464"
@@ -1089,6 +1113,28 @@
     "@material/rtl" "^7.0.0"
     "@material/shape" "^7.0.0"
     "@material/theme" "^7.0.0"
+    tslib "^1.9.3"
+
+"@material/progress-indicator@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/progress-indicator/-/progress-indicator-7.0.0.tgz#3c708457b86139fd7af2fbef13c5da0cc0d2fdc3"
+  integrity sha512-gU3K8fhGPFJ8bSe+jc98tqliYSjdNpzVHu0Tev4ETYeOSm4hU4O5gsrA2LJImUM23RmbL+DEa7SISR2j+jfUDA==
+  dependencies:
+    tslib "^1.9.3"
+
+"@material/radio@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/radio/-/radio-7.0.0.tgz#7175fa86d91d59bf852352e5788241ee2638d91b"
+  integrity sha512-0jpOJ1BVq2UlIcTxpSzsnyoAsWDf7nUaPYe55tqCyMfSMrDPCY4x2DeJw5fOhGyq61cRCotAlQRFDAe1qqxQfQ==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/density" "^7.0.0"
+    "@material/dom" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/touch-target" "^7.0.0"
     tslib "^1.9.3"
 
 "@material/ripple@^7.0.0":

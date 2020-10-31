@@ -21,11 +21,11 @@ const axios = require('axios').default;
 const places = []
 let filteredPlaces = []
 const placeMarkers = []
+let selectedPlaceType
 
 
 const showAddFreinds = () => {
     document.getElementById('userinput').style.display = 'inline';
-    document.getElementById('mapControl').style.display = 'none'
     document.getElementById('map').style.visibility = 'hidden'
     document.getElementById('listingDesktop').style.visibility = 'hidden'
     document.getElementById('listingMobile').style.visibility = 'hidden'
@@ -33,7 +33,6 @@ const showAddFreinds = () => {
 
 const showMap = () => {
     document.getElementById('userinput').style.display = 'none';
-    document.getElementById('mapControl').style.display = 'inline'
     document.getElementById('map').style.visibility = 'visible'
     if (window.matchMedia('screen and (max-width: 800px)').matches) {
         document.getElementById('listingMobile').style.visibility = 'visible'
@@ -53,7 +52,7 @@ if (window.matchMedia('screen and (max-width: 800px)').matches) {
 
 const buildLocationListMobile = () => {
     var listings = document.getElementById('mobileLocationList');
-    const locationOutputs = filteredPlaces.map((place, i)=>{
+    const locationOutputs = filteredPlaces.forEach((place, i)=>{
     
         var prop = {
             title:place.name,
@@ -62,17 +61,22 @@ const buildLocationListMobile = () => {
             city: place.vicinity
         };
 
-
-        return ` <li class="mdc-list-item">
-      <span class="mdc-list-item__ripple"></span>
+        let li = document.createElement('li')
+        li.classList.add("mdc-list-item")
+        li.innerHTML = `<span class="mdc-list-item__ripple"></span>
       <span class="mdc-list-item__text">
         <span class="mdc-list-item__primary-text">${prop.title}</span>
         <span class="mdc-list-item__secondary-text">${prop.city}</span>
-      </span>
-    </li>`
-      });
+      </span>`
 
-      listings.innerHTML = locationOutputs.join([''])
+      li.addEventListener('click', event => {
+        map.flyTo( {
+         center: place.location.coordinates,
+         zoom: 17.3,
+         });
+   }) 
+      listings.appendChild(li)
+      });
 }
 
 const  buildLocationListDesktop =() =>{
@@ -108,6 +112,13 @@ const  buildLocationListDesktop =() =>{
       if (prop.phone) {
         details.innerHTML += ' · ' + prop.phoneFormatted;
       }
+
+      listing.addEventListener('click', event => {
+           map.flyTo( {
+            center: place.location.coordinates,
+            zoom: 17.3,
+            });
+      }) 
     });
   }
 
@@ -307,7 +318,9 @@ const findIntersection = () => {
             matchedPlaces.forEach(responseItem => {
                 places.push(responseItem)
             })
-            filteredPlaces = places
+            filteredPlaces = places.filter(place => place.types.includes(selectedPlaceType))
+            var bbox = turf.bbox(intersection.geometry);
+            map.fitBounds(bbox);
             showPlaceMarkers()
             buildLocationList()
         })
@@ -335,8 +348,9 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('showPlaces').addEventListener("click", (event) => {
         document.getElementById('mapTab').disabled = false;
         tabBar.activateTab(1)
-
+        selectedPlaceType = document.querySelector('input[name="locationType"]:checked').value;
         findIntersection()
+
     });
 
     const tabBar = new MDCTabBar(document.querySelector('.mdc-tab-bar'));
@@ -349,26 +363,5 @@ document.addEventListener('DOMContentLoaded', function () {
         if (tabIndex === 1) {
             showMap()
         }
-    })
-
-    const checkBoxes = document.querySelectorAll('.mdc-checkbox')
-    const mdcCheckBoxList = []
-    checkBoxes.forEach(checkBox => {
-        const mdcCheckbox = new MDCCheckbox(checkBox)
-        mdcCheckBoxList.push(mdcCheckbox)
-        mdcCheckbox.listen('click', event => {
-            const selectedPlaceTypes = mdcCheckBoxList.filter(mdcCheckbox => mdcCheckbox.checked).map(mdcCheckbox => mdcCheckbox.value)
-            filteredPlaces = places.filter(place => {
-                let exists = false
-                selectedPlaceTypes.forEach(selectedType => {
-                    if (place.types.includes(selectedType)) {
-                        exists = true
-                    }
-                })
-                return exists
-            })
-            showPlaceMarkers()
-            buildLocationList()
-        })
     })
 }, false);

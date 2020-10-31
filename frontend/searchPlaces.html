@@ -62,7 +62,7 @@
                 height: 70%;
                 top: 0;
                 bottom: 0;
-                margin-top: 500px;
+                margin-top: 400px;
             }
         }
 
@@ -208,7 +208,7 @@
         }
 
         .mobile-listing-card {
-            height: 200px;
+            height: 330px;
         }
     </style>
 </head>
@@ -247,6 +247,7 @@
             </div>
         </div>
     </div>
+    
 
     <div id="userinput">
 
@@ -274,9 +275,6 @@
                                         <button id="addFreindBtn" class="mdc-button mdc-button--raised">
                                             <span class="mdc-button__label">Add</span>
                                         </button>
-                                        <button id="showPlaces" class="mdc-button mdc-button--raised">
-                                            <span class="mdc-button__label">Show</span>
-                                        </button>
                                     </div>
                                 </div>
 
@@ -299,65 +297,59 @@
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </div>
-
-
-
-
-    <div class="demo-grid mdc-layout-grid" id="mapControl" style="display: none;">
-        <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                <div class="mdc-card mdc-card--outlined">
-                    <div class="mdc-form-field">
-                        <div class="mdc-checkbox">
-                            <input type="checkbox" class="mdc-checkbox__native-control" id="Park" value="park" />
-                            <div class="mdc-checkbox__background">
-                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                    <path class="mdc-checkbox__checkmark-path" fill="none"
-                                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-                                </svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-card mdc-card--outlined">
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" id="parkLocationType" name="locationType"
+                                    value="park">
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle"></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                                <div class="mdc-radio__ripple"></div>
                             </div>
-                            <div class="mdc-checkbox__ripple"></div>
+                            <label for="radio-1">Park</label>
                         </div>
-                        <label for="checkbox-1">Park</label>
-                    </div>
-                    <div class="mdc-form-field">
-                        <div class="mdc-checkbox">
-                            <input type="checkbox" class="mdc-checkbox__native-control" id="Cafe" value="cafe" />
-                            <div class="mdc-checkbox__background">
-                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                    <path class="mdc-checkbox__checkmark-path" fill="none"
-                                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-                                </svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" id="cafeLocationType" name="locationType"
+                                    value="cafe">
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle"></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                                <div class="mdc-radio__ripple"></div>
                             </div>
-                            <div class="mdc-checkbox__ripple"></div>
+                            <label for="radio-1">Cafe</label>
                         </div>
-                        <label for="Cafe">Cafe</label>
-                    </div>
-                    <div class="mdc-form-field">
-                        <div class="mdc-checkbox">
-                            <input type="checkbox" class="mdc-checkbox__native-control" id="Resturent"
-                                value="restaurant" />
-                            <div class="mdc-checkbox__background">
-                                <svg class="mdc-checkbox__checkmark" viewBox="0 0 24 24">
-                                    <path class="mdc-checkbox__checkmark-path" fill="none"
-                                        d="M1.73,12.91 8.1,19.28 22.79,4.59" />
-                                </svg>
-                                <div class="mdc-checkbox__mixedmark"></div>
+                        <div class="mdc-form-field">
+                            <div class="mdc-radio">
+                                <input class="mdc-radio__native-control" type="radio" id="resturentLocationType" name="locationType"
+                                    value="resturent">
+                                <div class="mdc-radio__background">
+                                    <div class="mdc-radio__outer-circle"></div>
+                                    <div class="mdc-radio__inner-circle"></div>
+                                </div>
+                                <div class="mdc-radio__ripple"></div>
                             </div>
-                            <div class="mdc-checkbox__ripple"></div>
+                            <label for="radio-1">Resturent</label>
                         </div>
-                        <label for="Resturent">Resturent</label>
                     </div>
                 </div>
-            </div>
 
+                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                    <div class="mdc-touch-target-wrapper">
+                        <button id="showPlaces" class="mdc-button mdc-button--raised">
+                            <span class="mdc-button__label">Show</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
+
 
 
     <div id="listingDesktop" class='sidebar pad2' style="visibility: hidden;">
@@ -369,11 +361,11 @@
         </div>
     </div>
 
-    <div id="listingMobile" class="mdc-list-group" style="visibility: hidden;" >
+    <div id="listingMobile" class="mdc-list-group" style="visibility: hidden;">
         <div class="mdc-card mdc-card--outlined mobile-listing-card" style="overflow-y:auto">
-            
-            <ul id="mobileLocationList" class="mdc-list mdc-list--two-line" style="max-height:200px;" >
-               
+
+            <ul id="mobileLocationList" class="mdc-list mdc-list--two-line" style="max-height:400px;">
+
             </ul>
         </div>
     </div>
