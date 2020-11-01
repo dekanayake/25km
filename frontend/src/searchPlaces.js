@@ -11,6 +11,11 @@ import {
 import {
     MDCCheckbox
 } from '@material/checkbox';
+import { MDCLinearProgress } from '@material/linear-progress';
+
+
+const linearProgress = new MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
+linearProgress.close()
 
 
 
@@ -22,6 +27,7 @@ const places = []
 let filteredPlaces = []
 const placeMarkers = []
 let selectedPlaceType
+let melobourneSuburbsGeoJson
 
 
 const showAddFreinds = () => {
@@ -39,12 +45,12 @@ const showMap = () => {
     } else {
         document.getElementById('listingDesktop').style.visibility = 'visible'
     }
-   
+
 }
 
-const buildLocationList = ()  =>{
-if (window.matchMedia('screen and (max-width: 800px)').matches) {
-         buildLocationListMobile()
+const buildLocationList = () => {
+    if (window.matchMedia('screen and (max-width: 800px)').matches) {
+        buildLocationListMobile()
     } else {
         buildLocationListDesktop()
     }
@@ -52,11 +58,12 @@ if (window.matchMedia('screen and (max-width: 800px)').matches) {
 
 const buildLocationListMobile = () => {
     var listings = document.getElementById('mobileLocationList');
-    const locationOutputs = filteredPlaces.forEach((place, i)=>{
-    
+    listings.innerHTML = ''
+    const locationOutputs = filteredPlaces.forEach((place, i) => {
+
         var prop = {
-            title:place.name,
-            address:place.vicinity,
+            title: place.name,
+            address: place.vicinity,
             id: place.id,
             city: place.vicinity
         };
@@ -69,58 +76,63 @@ const buildLocationListMobile = () => {
         <span class="mdc-list-item__secondary-text">${prop.city}</span>
       </span>`
 
-      li.addEventListener('click', event => {
-        map.flyTo( {
-         center: place.location.coordinates,
-         zoom: 17.3,
-         });
-   }) 
-      listings.appendChild(li)
-      });
+        li.addEventListener('click', event => {
+            map.flyTo({
+                center: place.location.coordinates,
+                zoom: 17.3,
+            });
+        })
+        li.addEventListener('dblclick', event => {
+            var win = window.open(`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${prop.id}`, '_blank');
+            win.focus();
+        })
+        listings.appendChild(li)
+    });
 }
 
-const  buildLocationListDesktop =() =>{
-  
+const buildLocationListDesktop = () => {
+
     var listings = document.getElementById('listings');
     listings.innerHTML = ''
-    filteredPlaces.forEach((place, i)=>{
-    
-      var prop = {
-          title:place.name,
-          address:place.vicinity,
-          id: place.id,
-          city: place.vicinity
-      };
-  
-      /* Add a new listing section to the sidebar. */
-      var listing = listings.appendChild(document.createElement('div'));
-      /* Assign a unique `id` to the listing. */
-      listing.id = "listing-" + prop.id;
-      /* Assign the `item` class to each listing for styling. */
-      listing.className = 'item';
-  
-      /* Add the link to the individual listing created above. */
-      var link = listing.appendChild(document.createElement('a'));
-      link.href = '#';
-      link.className = 'title';
-      link.id = "link-" + prop.id;
-      link.innerHTML = prop.title;
-  
-      /* Add details to the individual listing. */
-      var details = listing.appendChild(document.createElement('div'));
-      details.innerHTML = prop.city;
-      if (prop.phone) {
-        details.innerHTML += ' · ' + prop.phoneFormatted;
-      }
+    filteredPlaces.forEach((place, i) => {
 
-      listing.addEventListener('click', event => {
-           map.flyTo( {
-            center: place.location.coordinates,
-            zoom: 17.3,
+        var prop = {
+            title: place.name,
+            address: place.vicinity,
+            id: place.id,
+            city: place.vicinity
+        };
+
+        /* Add a new listing section to the sidebar. */
+        var listing = listings.appendChild(document.createElement('div'));
+        /* Assign a unique `id` to the listing. */
+        listing.id = "listing-" + prop.id;
+        /* Assign the `item` class to each listing for styling. */
+        listing.className = 'item';
+
+        /* Add the link to the individual listing created above. */
+        var link = listing.appendChild(document.createElement('a'));
+        link.href = `https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${prop.id}`;
+        link.target = "_blank"
+        link.className = 'title';
+        link.id = "link-" + prop.id;
+        link.innerHTML = prop.title;
+
+        /* Add details to the individual listing. */
+        var details = listing.appendChild(document.createElement('div'));
+        details.innerHTML = prop.city;
+        if (prop.phone) {
+            details.innerHTML += ' · ' + prop.phoneFormatted;
+        }
+
+        listing.addEventListener('click', event => {
+            map.flyTo({
+                center: place.location.coordinates,
+                zoom: 17.3,
             });
-      }) 
+        })
     });
-  }
+}
 
 const showPlaceMarkers = () => {
     placeMarkers.forEach(marker => {
@@ -225,6 +237,7 @@ map.on('load', function () {
                 'features': []
             };
             metropolitanGeoJson.features = data.features
+            melobourneSuburbsGeoJson = metropolitanGeoJson
             map.getSource('metroploitan-suburbs').setData(metropolitanGeoJson)
 
 
@@ -263,34 +276,40 @@ const findIntersection = () => {
     });
 
     circles.forEach((circle, index) => {
-        map.addSource(`${freindGeoCodeList[index].name}-circle`, {
-            'type': 'geojson',
-            'data': circle
-        });
+        if (!map.getSource(`${freindGeoCodeList[index].name}-circle`)) {
+            map.addSource(`${freindGeoCodeList[index].name}-circle`, {
+                'type': 'geojson',
+                'data': circle
+            });
+        }
 
-        map.addLayer({
-            "id": `${freindGeoCodeList[index].name}-circle`,
-            "type": "fill",
-            "source": `${freindGeoCodeList[index].name}-circle`,
-            "layout": {},
-            "paint": {
-                "fill-color": "red",
-                "fill-opacity": 0.2,
-            }
-        });
+        if (!map.getLayer(`${freindGeoCodeList[index].name}-circle`)) {
+            map.addLayer({
+                "id": `${freindGeoCodeList[index].name}-circle`,
+                "type": "fill",
+                "source": `${freindGeoCodeList[index].name}-circle`,
+                "layout": {},
+                "paint": {
+                    "fill-color": "red",
+                    "fill-opacity": 0.2,
+                }
+            });
+        }
 
-        map.addLayer({
-            'id': `${freindGeoCodeList[index].name}-circle-text`,
-            'type': 'symbol',
-            'source': `${freindGeoCodeList[index].name}-circle`,
-            'layout': {
-                'text-field': `${freindGeoCodeList[index].name}`,
-                'text-justify': 'center'
-            },
-            'paint': {
-                'text-opacity': 0.6,
-            }
-        });
+        if (!map.getLayer(`${freindGeoCodeList[index].name}-circle-text`)) {
+            map.addLayer({
+                'id': `${freindGeoCodeList[index].name}-circle-text`,
+                'type': 'symbol',
+                'source': `${freindGeoCodeList[index].name}-circle`,
+                'layout': {
+                    'text-field': `${freindGeoCodeList[index].name}`,
+                    'text-justify': 'center'
+                },
+                'paint': {
+                    'text-opacity': 0.6,
+                }
+            });
+        }
     })
 
     let intersection
@@ -305,15 +324,19 @@ const findIntersection = () => {
         }
     })
 
+
+    const pieces = melobourneSuburbsGeoJson.features[0].geometry.coordinates.map(c => turf.polygon(c))
+    intersection = turf.intersect(pieces[0], intersection)
+
     axios.post('https://iqrbx1orsa.execute-api.ap-southeast-2.amazonaws.com/prod/places/nearBy', {
             geometry: intersection.geometry
         })
         .then(function (response) {
-
+            linearProgress.close()
             const matchedPlaces = response.data
 
             while (places.length) {
-                A.pop();
+                places.pop();
             }
             matchedPlaces.forEach(responseItem => {
                 places.push(responseItem)
@@ -323,8 +346,10 @@ const findIntersection = () => {
             map.fitBounds(bbox);
             showPlaceMarkers()
             buildLocationList()
+            
         })
         .catch(function (error) {
+            linearProgress.close()
             console.log(error);
         });
 
@@ -348,8 +373,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('showPlaces').addEventListener("click", (event) => {
         document.getElementById('mapTab').disabled = false;
         tabBar.activateTab(1)
-        selectedPlaceType = document.querySelector('input[name="locationType"]:checked').value;
-        findIntersection()
+
 
     });
 
@@ -361,7 +385,12 @@ document.addEventListener('DOMContentLoaded', function () {
             showAddFreinds()
         }
         if (tabIndex === 1) {
+            map.center = [144.9547881, -37.8253549]
+            map.zoom = 8
+            linearProgress.open()
             showMap()
+            selectedPlaceType = document.querySelector('input[name="locationType"]:checked').value;
+            findIntersection()
         }
     })
 }, false);
