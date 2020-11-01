@@ -40,6 +40,7 @@
     "@material/list": "^7.0.0",
     "@material/notched-outline": "^7.0.0",
     "@material/radio": "^7.0.0",
+    "@material/snackbar": "^7.0.0",
     "@material/tab-bar": "^7.0.0",
     "@material/textfield": "^7.0.0",
     "@material/top-app-bar": "^7.0.0",

@@ -248,14 +248,18 @@
         </div>
     </div>
 
-  
-    
+
+
 
     <div id="userinput">
 
 
         <div class="demo-grid mdc-layout-grid">
             <div class="mdc-layout-grid__inner">
+                <div
+                    class="mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-desktop">
+                    <h3>Home address</h3>
+                </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                     <div class="mdc-card mdc-card--outlined">
                         <div class="demo-grid mdc-layout-grid">
@@ -285,28 +289,26 @@
                     </div>
                 </div>
 
-             
 
-                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
+                <div id="friendAddressListDiv" class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12"
+                    style="display: none">
                     <div class="mdc-card mdc-card--outlined">
-                        <div class="demo-grid mdc-layout-grid">
-                            <div class="mdc-layout-grid__inner">
-                                <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
-                                    <ul id="freindAddressList" class="mdc-list">
+                        <ul id="freindAddressList" class="mdc-list">
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        </ul>
                     </div>
                 </div>
 
+                <div
+                    class="mdc-layout-grid__cell--span-4-phone mdc-layout-grid__cell--span-8-tablet mdc-layout-grid__cell--span-12-desktop">
+                    <h3>Location type</h3>
+                </div>
                 <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12">
                     <div class="mdc-card mdc-card--outlined">
                         <div class="mdc-form-field">
                             <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="parkLocationType" name="locationType"
-                                    value="park">
+                                <input class="mdc-radio__native-control" type="radio" id="parkLocationType"
+                                    name="locationType" value="park">
                                 <div class="mdc-radio__background">
                                     <div class="mdc-radio__outer-circle"></div>
                                     <div class="mdc-radio__inner-circle"></div>
@@ -317,8 +319,8 @@
                         </div>
                         <div class="mdc-form-field">
                             <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="cafeLocationType" name="locationType"
-                                    value="cafe">
+                                <input class="mdc-radio__native-control" type="radio" id="cafeLocationType"
+                                    name="locationType" value="cafe">
                                 <div class="mdc-radio__background">
                                     <div class="mdc-radio__outer-circle"></div>
                                     <div class="mdc-radio__inner-circle"></div>
@@ -329,15 +331,15 @@
                         </div>
                         <div class="mdc-form-field">
                             <div class="mdc-radio">
-                                <input class="mdc-radio__native-control" type="radio" id="resturentLocationType" name="locationType"
-                                    value="resturent">
+                                <input class="mdc-radio__native-control" type="radio" id="resturentLocationType"
+                                    name="locationType" value="restaurant">
                                 <div class="mdc-radio__background">
                                     <div class="mdc-radio__outer-circle"></div>
                                     <div class="mdc-radio__inner-circle"></div>
                                 </div>
                                 <div class="mdc-radio__ripple"></div>
                             </div>
-                            <label for="radio-1">Resturent</label>
+                            <label for="radio-1">Restaurant</label>
                         </div>
                     </div>
                 </div>
@@ -354,16 +356,16 @@
         </div>
     </div>
 
-    <div  role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate" >
-            <div class="mdc-linear-progress__buffering-dots"></div>
-            <div class="mdc-linear-progress__buffer"></div>
-            <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-              <span class="mdc-linear-progress__bar-inner"></span>
-            </div>
-            <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar" >
-              <span class="mdc-linear-progress__bar-inner"></span>
-            </div>
-          </div>
+    <div role="progressbar" class="mdc-linear-progress mdc-linear-progress--indeterminate">
+        <div class="mdc-linear-progress__buffering-dots"></div>
+        <div class="mdc-linear-progress__buffer"></div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+        <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+            <span class="mdc-linear-progress__bar-inner"></span>
+        </div>
+    </div>
 
     <div id="listingDesktop" class='sidebar pad2' style="visibility: hidden;">
         <div class='heading'>
@@ -388,7 +390,14 @@
     </div>
 
 
-
+    <div class="mdc-snackbar">
+            <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+              <div class="mdc-snackbar__label" aria-atomic="true">
+     
+              </div>
+        
+            </div>
+          </div>
 
 
 

@@ -31,6 +31,8 @@
 
 @use "@material/circular-progress/mdc-circular-progress";
 
+@use "@material/snackbar/mdc-snackbar";
+
 @include linear-progress.core-styles;
 
 @include radio.core-styles;

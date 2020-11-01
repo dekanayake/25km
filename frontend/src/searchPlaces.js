@@ -12,10 +12,14 @@ import {
     MDCCheckbox
 } from '@material/checkbox';
 import { MDCLinearProgress } from '@material/linear-progress';
+import {MDCSnackbar} from '@material/snackbar';
 
 
 const linearProgress = new MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
 linearProgress.close()
+
+
+const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
 
 
 
@@ -77,10 +81,14 @@ const buildLocationListMobile = () => {
       </span>`
 
         li.addEventListener('click', event => {
+            popup.setLngLat(place.location.coordinates).setHTML(`<strong>${prop.title}</strong><p>${prop.address}</p>`).addTo(map);
             map.flyTo({
                 center: place.location.coordinates,
                 zoom: 17.3,
             });
+        })
+        li.addEventListener('mouseleave', event => {
+            popup.remove();
         })
         li.addEventListener('dblclick', event => {
             var win = window.open(`https://www.google.com/maps/search/?api=1&query=Google&query_place_id=${prop.id}`, '_blank');
@@ -89,6 +97,12 @@ const buildLocationListMobile = () => {
         listings.appendChild(li)
     });
 }
+
+var popup = new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false,
+    offset: 25
+    });
 
 const buildLocationListDesktop = () => {
 
@@ -126,10 +140,14 @@ const buildLocationListDesktop = () => {
         }
 
         listing.addEventListener('click', event => {
+            popup.setLngLat(place.location.coordinates).setHTML(`<strong>${prop.title}</strong><p>${prop.address}</p>`).addTo(map);
             map.flyTo({
                 center: place.location.coordinates,
                 zoom: 17.3,
             });
+        })
+        listing.addEventListener('mouseleave', event => {
+            popup.remove();
         })
     });
 }
@@ -187,6 +205,7 @@ var geocoderFreind = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     countries: 'au',
     region: 'vic',
+    placeholder: 'Location'
 });
 
 geocoderFreind.addTo('#geocoderFreind');
@@ -251,6 +270,7 @@ let freindGeoResult
 let mapTabAdded
 
 const renderFreindAddressList = () => {
+    document.getElementById('friendAddressListDiv').style.display = freindGeoCodeList.length > 0 ?'inline' : 'none'
     var freindAddressList = document.getElementById('freindAddressList');
     const liResults = freindGeoCodeList.map((freindGeoCode, index) => {
         return ` <li class="mdc-list-item">
@@ -361,18 +381,41 @@ geocoderFreind.on('result', function (e) {
 
 });
 
+const validateUserInputs = () => {
+    snackbar.closeOnEscape = true
+    if (freindGeoCodeList.length  < 2) {
+        snackbar.labelText = 'Please add more than one location'
+        snackbar.foundation.setTimeoutMs(4000)
+        snackbar.open()
+        return false
+    }
+
+    if (!document.querySelector('input[name="locationType"]:checked')) {
+        snackbar.labelText = 'Please select location type'
+        snackbar.foundation.setTimeoutMs(4000)
+        snackbar.open()
+        return false
+    }
+    return true
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('addFreindBtn').addEventListener("click", (event) => {
         freindGeoCodeList.push({
             "name": document.getElementById('freindName').value,
             "geoResult": freindGeoResult
         })
+        geocoderFreind.clear()
+        freindName.value = ''
         renderFreindAddressList()
     });
 
     document.getElementById('showPlaces').addEventListener("click", (event) => {
         document.getElementById('mapTab').disabled = false;
-        tabBar.activateTab(1)
+        if (validateUserInputs() ){
+            tabBar.activateTab(1)
+        }
+  
 
 
     });

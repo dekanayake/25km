@@ -1165,6 +1165,25 @@
     "@material/rtl" "^7.0.0"
     "@material/theme" "^7.0.0"
 
+"@material/snackbar@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@material/snackbar/-/snackbar-7.0.0.tgz#4002b652e468b09e10d63ab46a8fcd8ae221e220"
+  integrity sha512-t9tYYTBIJLx7f2jl3E8miGaNc6Dh73gSY+gbwYAYHQKiXXOQj9234zQOEOTi2xjMkf2QvKecZ/Wu4+bBDF77wA==
+  dependencies:
+    "@material/animation" "^7.0.0"
+    "@material/base" "^7.0.0"
+    "@material/button" "^7.0.0"
+    "@material/dom" "^7.0.0"
+    "@material/elevation" "^7.0.0"
+    "@material/feature-targeting" "^7.0.0"
+    "@material/icon-button" "^7.0.0"
+    "@material/ripple" "^7.0.0"
+    "@material/rtl" "^7.0.0"
+    "@material/shape" "^7.0.0"
+    "@material/theme" "^7.0.0"
+    "@material/typography" "^7.0.0"
+    tslib "^1.9.3"
+
 "@material/tab-bar@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@material/tab-bar/-/tab-bar-7.0.0.tgz#8f3ca8b6d8a8893905882f39d637f07662aa3316"
