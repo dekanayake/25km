@@ -179,7 +179,7 @@ const showPlaceMarkers = () => {
 }
 
 
-mapboxgl.accessToken = 'pk.eyJ1IjoiZHVtaW5kYWUiLCJhIjoiY2tnbGd6NTAzMTA2aTJ0cGQ4Zjl5a29rOSJ9.DWoS_odLf0g8fA2t2_4iBQ';
+mapboxgl.accessToken = process.env.MAP_BOX_ACCESS_TOKEN;
 
 var map = new mapboxgl.Map({
     container: 'map',

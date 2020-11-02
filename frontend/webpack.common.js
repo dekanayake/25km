@@ -1,22 +1,26 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
   module.exports = [
     {
       entry: './src/measure.js',
-      mode: 'development',
       plugins: [
         new HtmlWebpackPlugin({
           filename: 'index.html',
           template: 'index.html'
         }),
+        new CopyPlugin({
+          patterns: [
+            { from: path.resolve(__dirname, 'metro.json'), to: path.resolve(__dirname, 'dist') },
+          ],
+        })
       ],
       output: {
         path: path.resolve(__dirname, 'dist'),
       },
     },{
-    mode: 'development',
     entry: './src/measure.js',
     plugins: [
       new HtmlWebpackPlugin({
@@ -30,7 +34,6 @@ const autoprefixer = require('autoprefixer');
     },
   },
   {
-    mode: 'development',
     entry: './src/searchPlaces.js',
     plugins: [
       new HtmlWebpackPlugin({

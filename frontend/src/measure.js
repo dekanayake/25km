@@ -10,8 +10,7 @@ const epsg3857 = require('epsg-index/s/3857.json');
         // ADD YOUR ACCESS TOKEN FROM
         // https://account.mapbox.com
 
-        mapboxgl.accessToken =
-            'pk.eyJ1IjoiZHVtaW5kYWUiLCJhIjoiY2tnbGd6NTAzMTA2aTJ0cGQ4Zjl5a29rOSJ9.DWoS_odLf0g8fA2t2_4iBQ';
+        mapboxgl.accessToken = process.env.MAP_BOX_ACCESS_TOKEN;
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
