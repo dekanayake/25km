@@ -1,81 +1,38 @@
 <!DOCTYPE html>
 <html>
+        <head>
+                <meta charset="utf-8" />
+                <title>25km</title>
+                <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+                <link rel="stylesheet" href="bundle.css">  
+                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+            </head>
 
-<head>
-    <meta charset="utf-8" />
-    <title>25km</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    </script>
-    <link rel="stylesheet" href="bundle.css">  
-    <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
-    <link rel='stylesheet'
-        href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.2.0/mapbox-gl-geocoder.css'
-        type='text/css' />
-   
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        #map {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-
-<body>
-    <style>
-      
-
-        .distance-container>* {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            font-size: 11px;
-            line-height: 18px;
-            display: block;
-            margin: 0;
-            padding: 5px 10px;
-            border-radius: 3px;
-        }
-
-
-        .mapboxgl-ctrl-geocoder {
-            min-width: 100%;
-        }
-
-        #map {
-            margin-top: 75px;
-        }
-
-        @media (max-width: 800px) {
-            #map {
-                margin-top: 200px;
-            }
-        }
-    </style>
-
-
-
-      <div class="demo-grid mdc-layout-grid">
-            <div class="mdc-layout-grid__inner">
-               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">    <div id="geocoderHome" class="geocoder"></div></div>
-               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">    <div id="geocoderTo" class="geocoder"></div></div>
-               <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-4">    <div id="distance" class="distance-container"></div></div>
-              <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-12"><div id="map"></div></div>
-            </div>
-          </div>
-    
-
-    
-    
-
-
-    <script src="bundle.js" async></script>
-
-</body>
-
+            <body>
+                    <div class="demo-grid mdc-layout-grid">
+                            <div class="mdc-layout-grid__inner">
+                              <div class="demo-cell mdc-layout-grid__cell mdc-layout-grid__cell--span-6 ">
+                                    <div class="mdc-touch-target-wrapper">
+                                            <button class="mdc-button mdc-button--outlined">
+                                                    <div class="mdc-button__ripple"></div>
+                                                    <i class="material-icons mdc-button__icon" aria-hidden="true">straighten</i>
+                                                    <span class="mdc-button__label">Measure distance</span>
+                                                  </button>
+                                          </div>
+                              </div>
+                              <div class="demo-cell mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
+                                    <div class="mdc-touch-target-wrapper">
+                                            <button class="mdc-button mdc-button--outlined">
+                                                    <div class="mdc-button__ripple"></div>
+                                                    <i class="material-icons mdc-button__icon" aria-hidden="true">nature_people</i>
+                                                    <span class="mdc-button__label">Find places to join</span>
+                                                  </button>
+                                          </div>
+                              </div>
+                            </div>
+                          </div>
+                        
+                
+                    <script src="bundle.js" async></script>
+            </body>
 </html>

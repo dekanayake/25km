@@ -2,16 +2,30 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
-  module.exports = [{
+  module.exports = [
+    {
+      entry: './src/measure.js',
+      mode: 'development',
+      plugins: [
+        new HtmlWebpackPlugin({
+          filename: 'index.html',
+          template: 'index.html'
+        }),
+      ],
+      output: {
+        path: path.resolve(__dirname, 'dist'),
+      },
+    },{
     mode: 'development',
-    entry: './src/index.js',
+    entry: './src/measure.js',
     plugins: [
       new HtmlWebpackPlugin({
-        template: 'index.html'
+        filename: 'measure.html',
+        template: 'measure.html'
       }),
     ],
     output: {
-      filename: 'main.js',
+      filename: 'measure.js',
       path: path.resolve(__dirname, 'dist'),
     },
   },

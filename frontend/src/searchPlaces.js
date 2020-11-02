@@ -20,7 +20,7 @@ linearProgress.close()
 
 
 const snackbar = new MDCSnackbar(document.querySelector('.mdc-snackbar'));
-
+snackbar.closeOnEscape = true
 
 
 const epsg4326 = require('epsg-index/s/4326.json')
@@ -344,7 +344,12 @@ const findIntersection = () => {
         }
     })
 
-
+    if (!intersection) {
+        snackbar.labelText = 'No interesction found for provided addresses'
+        snackbar.foundation.setTimeoutMs(4000)
+        snackbar.open()
+        linearProgress.close()
+    }
     const pieces = melobourneSuburbsGeoJson.features[0].geometry.coordinates.map(c => turf.polygon(c))
     intersection = turf.intersect(pieces[0], intersection)
 
@@ -382,7 +387,7 @@ geocoderFreind.on('result', function (e) {
 });
 
 const validateUserInputs = () => {
-    snackbar.closeOnEscape = true
+
     if (freindGeoCodeList.length  < 2) {
         snackbar.labelText = 'Please add more than one location'
         snackbar.foundation.setTimeoutMs(4000)

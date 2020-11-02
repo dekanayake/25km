@@ -33,6 +33,10 @@
 
 @use "@material/snackbar/mdc-snackbar";
 
+@use "@material/fab";
+
+@include fab.core-styles;
+
 @include linear-progress.core-styles;
 
 @include radio.core-styles;
