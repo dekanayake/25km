@@ -205,7 +205,7 @@ var geocoderFreind = new MapboxGeocoder({
     accessToken: mapboxgl.accessToken,
     countries: 'au',
     region: 'vic',
-    placeholder: 'Location'
+    placeholder: 'Address'
 });
 
 geocoderFreind.addTo('#geocoderFreind');
