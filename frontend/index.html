@@ -1,38 +1,93 @@
 <!DOCTYPE html>
 <html>
-        <head>
-                <meta charset="utf-8" />
-                <title>25km</title>
-                <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-                <link rel="stylesheet" href="bundle.css">  
-                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-            </head>
 
-            <body>
-                    <div class="demo-grid mdc-layout-grid">
-                            <div class="mdc-layout-grid__inner">
-                              <div class="demo-cell mdc-layout-grid__cell mdc-layout-grid__cell--span-6 ">
-                                    <div class="mdc-touch-target-wrapper">
-                                            <button class="mdc-button mdc-button--outlined" onclick="window.location='/measure.html';">
-                                                    <div class="mdc-button__ripple"></div>
-                                                    <i class="material-icons mdc-button__icon" aria-hidden="true">straighten</i>
-                                                    <span class="mdc-button__label">Measure distance</span>
-                                                  </button>
-                                          </div>
-                              </div>
-                              <div class="demo-cell mdc-layout-grid__cell mdc-layout-grid__cell--span-6">
-                                    <div class="mdc-touch-target-wrapper">
-                                            <button class="mdc-button mdc-button--outlined" onclick="window.location='/searchPlaces.html';">
-                                                    <div class="mdc-button__ripple"></div>
-                                                    <i class="material-icons mdc-button__icon" aria-hidden="true">nature_people</i>
-                                                    <span class="mdc-button__label">Find places to join</span>
-                                                  </button>
-                                          </div>
-                              </div>
-                            </div>
-                          </div>
-                        
-                
-                    <script src="bundle.js" async></script>
-            </body>
+<head>
+        <meta charset="utf-8" />
+        <title>25km</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+        <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+</head>
+
+<body>
+        <style>
+                .demo-card-wide.mdl-card {
+                        width: 512px;
+                }
+
+                @media (max-width: 800px) {
+                        .demo-card-wide.mdl-card {
+                                width: 380px;
+                        }
+                }
+
+                .demo-card-wide>.mdl-card__title_measure_distance {
+                        color: #fff;
+                        height: 176px;
+                        background: url('./static/images/Ruler-on-scale.jpg') center / cover;
+                }
+
+                .demo-card-wide>.mdl-card__title_meet_freinds {
+                        color: #fff;
+                        height: 176px;
+                        background: url('./static/images/meet_freinds.jpg') center / cover;
+                }
+
+                .demo-card-wide>.mdl-card__menu {
+                        color: #fff;
+                }
+        </style>
+        <div class="mdl-grid" style="text-align: center;">
+                <div class="mdl-cell mdl-cell--6-col" >
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="text-align: center;">
+                                <div class="mdl-card__title_measure_distance">
+
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                        Measure the staright line distance to location you intend to travel
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+
+                                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                                onclick="window.location='/measure.html';">
+                                                Measure distance
+                                        </button>
+                                </div>
+                                <div class="mdl-card__menu">
+
+                                </div>
+                        </div>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col" >
+                        <div class="demo-card-wide mdl-card mdl-shadow--2dp" style="text-align: center;">
+                                <div class="mdl-card__title_meet_freinds">
+
+                                </div>
+                                <div class="mdl-card__supporting-text">
+                                        Find the places where you can join with friends. This will find intersections
+                                        between you and your freinds travel bubble and
+                                        recommond places.
+                                </div>
+                                <div class="mdl-card__actions mdl-card--border">
+
+                                        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                                                onclick="window.location='/searchPlaces.html';">
+                                                Find places to join with friends
+                                        </button>
+                                </div>
+                                <div class="mdl-card__menu">
+
+                                </div>
+                        </div>
+                </div>
+
+        </div>
+
+
+
+
+</body>
+
 </html>
