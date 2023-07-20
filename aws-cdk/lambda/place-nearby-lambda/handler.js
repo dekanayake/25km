@@ -1,6 +1,6 @@
 "use strict";
 const MongoClient = require('mongodb').MongoClient;
-const MONGODB_URI = "mongodb+srv://places_access:OLKYNwfmLNfp8PGN@cluster0.rkh9q.mongodb.net/melbourne_cbd_places?retryWrites=true&w=majority"; // or Atlas connection string
+const MONGODB_URI = props.env.MONGO_DB_LINK; // or Atlas connection string
 
 let cachedDb = null;
 
